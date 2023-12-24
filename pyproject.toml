@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "distance-to-sea"
+version = "0.1.0"
+description = "Distance calculation from population-weighted centroid of LSOAs in England to nearest point on the coastline."
+authors = ["Harriet Sands"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+geopandas = "^0.14.1"
+pandas = "^2.1.4"
+geopy = "^2.4.1"
+shapely = "^2.0.2"
+pathlib = "^1.0.1"
+
+[tool.poetry.dev-dependencies]
+pytest-black = "^0.3.12"
+pre-commit = "^3.6.0"
+flake8 = "^6.1.0"
+isort = "^5.13.2"
+pytest = "^7.4.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
