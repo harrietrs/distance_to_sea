@@ -26,7 +26,9 @@ def distance_to_sea(
         _type_: _description_
     """
     print("Generating distances")
-    coastline = gpd.read_file(Path("./data").joinpath(coast_boundaries))
+    coastline = gpd.read_file(
+        Path("./data").joinpath(coast_boundaries, f"{coast_boundaries}.shp")
+    )
 
     if coastline.empty or coastline["geometry"].isnull().any():
         raise ValueError("Coastline data is missing or invalid")
@@ -39,10 +41,10 @@ def distance_to_sea(
         axis=1,
     )
 
-    # Filter out rows with missing or invalid geometries from lsoa_centroids
+    # Filter out rows with missing or invalid geometries from centroids
     pwc.dropna(subset=["geometry"], inplace=True)
 
-    # Find the closest point on the coastline to each LSOA centroid
+    # Find the closest point on the coastline to each centroid
     def _find_nearest_coast_point(row):
         coastline_geom = coastline["geometry"][0]
         nearest = nearest_points(row["geometry"], coastline_geom.boundary)
@@ -64,4 +66,4 @@ def distance_to_sea(
         _calc_distance_between_points, axis=1
     )
 
-    return pwc[[params.LSOA_code, params.distance_to_sea_field_name]]
+    return pwc[[params.area_code, params.distance_to_sea_field_name]].copy()
