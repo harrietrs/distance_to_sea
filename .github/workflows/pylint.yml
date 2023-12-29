@@ -19,7 +19,7 @@ jobs:
     - name: Set up poetry
       run:
         pip install poetry
-        poetry install --with dev
+        poetry install
     - name: Check import order
       run: |
         poetry run isort . --check-only
