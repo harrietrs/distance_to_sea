@@ -6,7 +6,7 @@ from bng_latlon import OSGB36toWGS84
 from src import params
 
 
-def process_pwc(raw_file: str = params.pwc_file) -> pd.DataFrame:
+def process_pwc(raw_file: str = params.PWC_FILE) -> pd.DataFrame:
     """
     Cleans populated weighted centroids file
 

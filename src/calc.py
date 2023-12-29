@@ -10,14 +10,14 @@ from src import params
 
 
 def distance_to_sea(
-    pwc: DataFrame, coast_boundaries: str = params.coast_boundaries_file
+    pwc: DataFrame, coast_boundaries: str = params.COAST_BOUNDARIES_FILE
 ):
     """distance_to_sea
 
     Args:
         pwc (DataFrame): Population-weighted centroid data
         coast_boundaries (str, optional): File containing coastal boundary data.
-        Defaults to params.coast_boundaries_file.
+        Defaults to params.COAST_BOUNDARIES_FILE.
 
     Raises:
         ValueError: _description_
@@ -62,8 +62,8 @@ def distance_to_sea(
         ).km
 
     print("Calculating the distance to the coast")
-    pwc[params.distance_to_sea_field_name] = pwc.apply(
+    pwc[params.DISTANCE_TO_SEA_FIELD_NAME] = pwc.apply(
         _calc_distance_between_points, axis=1
     )
 
-    return pwc[[params.area_code, params.distance_to_sea_field_name]].copy()
+    return pwc[[params.AREA_CODE, params.DISTANCE_TO_SEA_FIELD_NAME]].copy()
