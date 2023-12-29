@@ -22,6 +22,15 @@ isort = "^5.13.2"
 pytest = "^7.4.3"
 ipykernel = "^6.28.0"
 
+[tool.isort]
+profile = "black"
+
+[tool.pylint]
+max-line-length = 88
+
+[tool.black]
+max-line-length = 88
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
