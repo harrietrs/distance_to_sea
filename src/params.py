@@ -1,6 +1,4 @@
 LSOA_PWC_file = "LSOA21_PWC.csv"
 coast_boundaries_file = "gadm41_GBR_0.shp"
-LSOA_code = "LSOA21CD"
-LSOA2011_code = "LSOA11CD"
 distance_to_sea_file = "distance_to_sea.csv"
 distance_to_sea_field_name = "Distance to Sea (km)"
