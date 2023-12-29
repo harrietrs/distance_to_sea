@@ -26,7 +26,7 @@ def clean_pwc(raw_file: str = params.LSOA_PWC_file):
     # for use in sea distance
     LSOA_pwc = pd.read_csv(Path("./data").joinpath(raw_file))
 
-    def _convert_to_latlon(row):
+    def _convert_to_latlon(row) -> pd.Series[float]:
         """Convert X & Y coords to latitude and longitude"""
         lat, lon = OSGB36toWGS84(row["X"], row["Y"])
         return pd.Series({"lat": lat, "lon": lon})

@@ -1,12 +1,11 @@
 import timeit
 
-from src.clean import clean_distance_to_sea
+from src.process import clean_distance_to_sea
 
 
 def main() -> None:
 
     print(f"\n{'-'*60}\nPipeline starting\n")
-    # Create output folder
     print(f"\n{'-'*60}\nCleaning Data\n")
     clean_distance_to_sea()
 
