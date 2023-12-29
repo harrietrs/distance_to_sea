@@ -1,13 +1,17 @@
 import timeit
 
-from src.process import clean_distance_to_sea
+from src.calc import distance_to_sea
+from src.format import clean_distance_to_sea
+from src.process import process_pwc
 
 
 def main() -> None:
 
     print(f"\n{'-'*60}\nPipeline starting\n")
     print(f"\n{'-'*60}\nCleaning Data\n")
-    clean_distance_to_sea()
+    pwc = process_pwc()
+    distances = distance_to_sea(pwc)
+    clean_distance_to_sea(distances, write=True)
 
 
 if __name__ == "__main__":

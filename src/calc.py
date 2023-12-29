@@ -2,17 +2,21 @@ from pathlib import Path
 
 import geopandas as gpd
 from geopy.distance import distance
+from pandas import DataFrame
 from shapely.geometry import Point
 from shapely.ops import nearest_points
 
-from src import clean, params
+from src import params
 
 
-def calc_distance_to_sea(coast_boundaries: str = params.coast_boundaries_file):
-    """_summary_
+def distance_to_sea(
+    pwc: DataFrame, coast_boundaries: str = params.coast_boundaries_file
+):
+    """distance_to_sea
 
     Args:
-        coast_boundaries (str, optional): _description_.
+        pwc (DataFrame): Population-weighted centroid data
+        coast_boundaries (str, optional): File containing coastal boundary data.
         Defaults to params.coast_boundaries_file.
 
     Raises:
@@ -27,8 +31,7 @@ def calc_distance_to_sea(coast_boundaries: str = params.coast_boundaries_file):
     if coastline.empty or coastline["geometry"].isnull().any():
         raise ValueError("Coastline data is missing or invalid")
 
-    lsoa_pwc = clean.clean_pwc()
-    lsoa_pwc["geometry"] = lsoa_pwc.apply(
+    pwc["geometry"] = pwc.apply(
         lambda row: Point(
             row["lon"],
             row["lat"],
@@ -37,7 +40,7 @@ def calc_distance_to_sea(coast_boundaries: str = params.coast_boundaries_file):
     )
 
     # Filter out rows with missing or invalid geometries from lsoa_centroids
-    lsoa_pwc.dropna(subset=["geometry"], inplace=True)
+    pwc.dropna(subset=["geometry"], inplace=True)
 
     # Find the closest point on the coastline to each LSOA centroid
     def _find_nearest_coast_point(row):
@@ -48,18 +51,17 @@ def calc_distance_to_sea(coast_boundaries: str = params.coast_boundaries_file):
         return Point(row["geometry"].x, row["geometry"].y)
 
     print("Finding nearest coast point")
-    lsoa_pwc["nearest_coast_point"] = lsoa_pwc.apply(_find_nearest_coast_point, axis=1)
+    pwc["nearest_coast_point"] = pwc.apply(_find_nearest_coast_point, axis=1)
 
-    # Calculate distance from LSOA centroid to the closest point on the coastline
-    def _calc_distance_to_coast(row):
+    def _calc_distance_between_points(row):
         return distance(
             (row["lat"], row["lon"]),
             (row["nearest_coast_point"].y, row["nearest_coast_point"].x),
         ).km
 
     print("Calculating the distance to the coast")
-    lsoa_pwc[params.distance_to_sea_field_name] = lsoa_pwc.apply(
-        _calc_distance_to_coast, axis=1
+    pwc[params.distance_to_sea_field_name] = pwc.apply(
+        _calc_distance_between_points, axis=1
     )
 
-    return lsoa_pwc[[params.LSOA_code, params.distance_to_sea_field_name]]
+    return pwc[[params.LSOA_code, params.distance_to_sea_field_name]]
