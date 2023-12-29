@@ -1,0 +1,3 @@
+[flake8]
+exclude = .git,src/__pycache__,src/params.py
+max-line-length = 88
