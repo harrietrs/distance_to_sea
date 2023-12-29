@@ -22,7 +22,10 @@ jobs:
         pip install pylint isort black
     - name: Check import order
       run: |
-      isort . --check-only
+        isort . --check-only
+    - name: Black formatting
+      run: |
+        black . --check --verbose --diff --color --line-length 88
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
