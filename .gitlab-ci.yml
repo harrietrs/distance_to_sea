@@ -1,0 +1,29 @@
+image: python:3.10.10-alpine3.17
+
+stages:
+  - check_imports
+  - linting
+
+before_script:
+  - python3 -m pip install black isort flake8
+
+check_imports:
+    stage: check_imports
+    script:
+        - isort . --check-only
+    only:
+        - merge_requests
+
+linting:black:
+    stage: linting
+    script:
+        - black . --check --verbose --diff --color --line-length 88
+    only:
+        - merge_requests
+
+linting:flake8:
+    stage: linting
+    script:
+        - flake8 . --max-line-length 88
+    only:
+        - merge_requests
