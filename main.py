@@ -6,7 +6,6 @@ from src.process import process_pwc
 
 
 def main() -> None:
-
     print(f"\n{'-'*60}\nPipeline starting\n")
     print(f"\n{'-'*60}\nCleaning Data\n")
     pwc = process_pwc()
