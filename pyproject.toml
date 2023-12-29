@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "distance-to-sea"
 version = "0.1.0"
-description = "Distance calculation from population-weighted centroid of LSOAs in England to nearest point on the coastline."
+description = "Distance calculation from population-weighted centroid of areas in England and Wales to the nearest point on the coastline."
 authors = ["Harriet Sands"]
 license = "MIT"
 
@@ -20,6 +20,7 @@ pre-commit = "^3.6.0"
 flake8 = "^6.1.0"
 isort = "^5.13.2"
 pytest = "^7.4.3"
+ipykernel = "^6.28.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
