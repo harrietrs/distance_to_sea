@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import geopandas as gpd
 import pandas as pd
 from bng_latlon import OSGB36toWGS84
 
