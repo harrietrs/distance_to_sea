@@ -4,6 +4,7 @@ import pandas as pd
 from dotenv import load_dotenv
 
 load_dotenv()
+from distance_to_sea import params
 
 
 def clean_distance_to_sea(

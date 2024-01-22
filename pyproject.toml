@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "distance-to-sea"
+name = "distance_to_sea"
 version = "0.1.0"
 description = "Distance calculation from population-weighted centroid of areas in England and Wales to the nearest point on the coastline."
 authors = ["Harriet Sands"]

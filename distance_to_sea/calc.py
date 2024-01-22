@@ -8,10 +8,11 @@ from shapely.geometry import Point
 from shapely.ops import nearest_points
 
 load_dotenv()
+from distance_to_sea import params
 
 
-def distance_to_sea(pwc: DataFrame, coast_boundaries: str):
-    """distance_to_sea
+def calc_distance_to_sea(pwc: DataFrame, coast_boundaries: str):
+    """calc_distance_to_sea
 
     Args:
         pwc (DataFrame): Population-weighted centroid data
