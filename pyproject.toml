@@ -13,7 +13,6 @@ geopy = "^2.4.1"
 shapely = "^2.0.2"
 pathlib = "^1.0.1"
 bng-latlon = "^1.1"
-python-dotenv = "^1.0.0"
 black = "^23.12.1"
 
 [tool.poetry.dev-dependencies]
