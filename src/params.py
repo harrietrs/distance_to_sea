@@ -1,5 +1,0 @@
-PWC_FILE = "pwc_datafile.csv"
-COAST_BOUNDARIES_FILE = "gadm41_GBR_0_compressed_50.2"
-DISTANCE_TO_SEA_FILE = "distance_to_sea.csv"
-DISTANCE_TO_SEA_FIELD_NAME = "Distance to Sea (km)"
-AREA_CODE = "LSOA21CD"

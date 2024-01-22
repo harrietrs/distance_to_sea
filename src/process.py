@@ -3,10 +3,8 @@ from pathlib import Path
 import pandas as pd
 from bng_latlon import OSGB36toWGS84
 
-from src import params
 
-
-def process_pwc(raw_file: str = params.PWC_FILE) -> pd.DataFrame:
+def process_pwc(raw_file: str) -> pd.DataFrame:
     """
     Cleans populated weighted centroids file
 
@@ -14,7 +12,6 @@ def process_pwc(raw_file: str = params.PWC_FILE) -> pd.DataFrame:
     ----------
     raw_file : str, optional
         The name of the PWC file.
-        The default comes from params.py
     """
     # used to convert X & Y coords to latitude and longitude
     pwc = pd.read_csv(Path("./data").joinpath(raw_file))

@@ -237,19 +237,6 @@ s3 = ["boto3 (>=1.3.1)"]
 test = ["fiona", "pytest (>=7)", "pytest-cov", "pytz"]
 
 [[package]]
-name = "flake8"
-version = "6.1.0"
-description = "the modular source code checker: pep8 pyflakes and co"
-category = "dev"
-optional = false
-python-versions = ">=3.8.1"
-
-[package.dependencies]
-mccabe = ">=0.7.0,<0.8.0"
-pycodestyle = ">=2.11.0,<2.12.0"
-pyflakes = ">=3.1.0,<3.2.0"
-
-[[package]]
 name = "geographiclib"
 version = "2.0"
 description = "The geodesic routines from GeographicLib"
@@ -375,17 +362,6 @@ test = ["pytest", "pytest-asyncio (<0.22)", "testpath", "pickleshare"]
 test_extra = ["pytest", "pytest-asyncio (<0.22)", "testpath", "pickleshare", "curio", "matplotlib (!=3.2.0)", "nbformat", "numpy (>=1.23)", "pandas", "trio"]
 
 [[package]]
-name = "isort"
-version = "5.13.2"
-description = "A Python utility / library to sort Python imports."
-category = "dev"
-optional = false
-python-versions = ">=3.8.0"
-
-[package.extras]
-colors = ["colorama (>=0.4.6)"]
-
-[[package]]
 name = "jedi"
 version = "0.19.1"
 description = "An autocompletion tool for Python that can be used for text editors."
@@ -447,14 +423,6 @@ python-versions = ">=3.5"
 
 [package.dependencies]
 traitlets = "*"
-
-[[package]]
-name = "mccabe"
-version = "0.7.0"
-description = "McCabe checker, plugin for flake8"
-category = "dev"
-optional = false
-python-versions = ">=3.6"
 
 [[package]]
 name = "mypy-extensions"
@@ -658,28 +626,12 @@ python-versions = "*"
 tests = ["pytest"]
 
 [[package]]
-name = "pycodestyle"
-version = "2.11.1"
-description = "Python style guide checker"
-category = "dev"
-optional = false
-python-versions = ">=3.8"
-
-[[package]]
 name = "pycparser"
 version = "2.21"
 description = "C parser in Python"
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-
-[[package]]
-name = "pyflakes"
-version = "3.1.0"
-description = "passive checker of Python programs"
-category = "dev"
-optional = false
-python-versions = ">=3.8"
 
 [[package]]
 name = "pygments"
@@ -746,6 +698,17 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 
 [package.dependencies]
 six = ">=1.5"
+
+[[package]]
+name = "python-dotenv"
+version = "1.0.0"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.extras]
+cli = ["click (>=5.0)"]
 
 [[package]]
 name = "pytz"
@@ -901,7 +864,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "46ea63b25f489fa32fb2c0bd0d065977942fa38a0cbba4c3b4695f3c49abcd4c"
+content-hash = "65d122c1c057c90010a1288934429da84456cc05e4d9bf7d83d32fc5ff8eea60"
 
 [metadata.files]
 appnope = []
@@ -927,7 +890,6 @@ exceptiongroup = []
 executing = []
 filelock = []
 fiona = []
-flake8 = []
 geographiclib = []
 geopandas = []
 geopy = []
@@ -935,12 +897,10 @@ identify = []
 iniconfig = []
 ipykernel = []
 ipython = []
-isort = []
 jedi = []
 jupyter-client = []
 jupyter-core = []
 matplotlib-inline = []
-mccabe = []
 mypy-extensions = []
 nest-asyncio = []
 nodeenv = []
@@ -961,9 +921,7 @@ ptyprocess = [
     {file = "ptyprocess-0.7.0.tar.gz", hash = "sha256:5c5d0a3b48ceee0b48485e0c26037c0acd7d29765ca3fbb5cb3831d347423220"},
 ]
 pure-eval = []
-pycodestyle = []
 pycparser = []
-pyflakes = []
 pygments = []
 pyproj = []
 pytest = []
@@ -972,6 +930,7 @@ python-dateutil = [
     {file = "python-dateutil-2.8.2.tar.gz", hash = "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"},
     {file = "python_dateutil-2.8.2-py2.py3-none-any.whl", hash = "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9"},
 ]
+python-dotenv = []
 pytz = []
 pywin32 = []
 pyyaml = []

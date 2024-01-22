@@ -13,14 +13,14 @@ geopy = "^2.4.1"
 shapely = "^2.0.2"
 pathlib = "^1.0.1"
 bng-latlon = "^1.1"
+python-dotenv = "^1.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest-black = "^0.3.12"
 pre-commit = "^3.6.0"
-flake8 = "^6.1.0"
-isort = "^5.13.2"
 pytest = "^7.4.3"
 ipykernel = "^6.28.0"
+toml = "^0.10.2"
 
 [tool.isort]
 profile = "black"

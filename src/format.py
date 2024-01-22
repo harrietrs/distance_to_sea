@@ -1,8 +1,9 @@
 from pathlib import Path
 
 import pandas as pd
+from dotenv import load_dotenv
 
-from src import params
+load_dotenv()
 
 
 def clean_distance_to_sea(
@@ -17,11 +18,11 @@ def clean_distance_to_sea(
         _type_: _description_
     """
     distance_to_sea.rename(
-        columns={"distance to sea km": params.DISTANCE_TO_SEA_FIELD_NAME}, inplace=True
+        columns={"distance to sea km": DISTANCE_TO_SEA_FIELD_NAME}, inplace=True
     )
 
     if write:
-        write_output(distance_to_sea, file_name=params.DISTANCE_TO_SEA_FILE)
+        write_output(distance_to_sea, file_name=DISTANCE_TO_SEA_FILE)
 
     return distance_to_sea
 

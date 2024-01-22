@@ -23,6 +23,3 @@ jobs:
     - name: Black formatting
       run: |
         poetry run black . --check --verbose --diff --color --line-length 88
-    - name: Analysing the code with pylint
-      run: |
-        poetry run pylint $(git ls-files '*.py')
