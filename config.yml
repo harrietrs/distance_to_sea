@@ -1,0 +1,7 @@
+files:
+  centroids: pwc_datafile.csv
+  boundaries: gadm41_GBR_0_compressed_50.2
+  output: distance_to_sea.csv
+fields:
+  output_field_name: "Distance to Sea (km)"
+  area_code: LSOA21CD
