@@ -1,21 +1,34 @@
 import timeit
 
-from dotenv import load_dotenv
+import yaml
 
 from distance_to_sea.calc import calc_distance_to_sea
 from distance_to_sea.format import clean_distance_to_sea
 from distance_to_sea.process import process_pwc
 
-load_dotenv()
+with open("config.yml", "r") as yamlfile:
+    cfg = yaml.load(yamlfile, Loader=yaml.FullLoader)
+    print("Config loaded")
+print(cfg)
 
 
 def main() -> None:
     "Main function to run pipeline"
     print(f"\n{'-'*60}\nPipeline starting\n")
     print(f"\n{'-'*60}\nCleaning Data\n")
-    pwc = process_pwc(PWC_FILE)
-    distances = calc_distance_to_sea(pwc, COAST_BOUNDARIES_FILE)
-    clean_distance_to_sea(distances, write=True)
+    pwc = process_pwc(cfg["files"]["centroids"])
+    distances = calc_distance_to_sea(
+        pwc,
+        coast_boundaries=cfg["files"]["boundaries"],
+        area_code=cfg["fields"]["area_code"],
+        distance_to_sea_field=cfg["fields"]["output_field"],
+    )
+    clean_distance_to_sea(
+        distances,
+        distance_to_sea_field_name=cfg["fields"]["output_field_name"],
+        distance_to_sea_file=cfg["files"]["output"],
+        write=True,
+    )
 
 
 if __name__ == "__main__":
