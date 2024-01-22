@@ -23,9 +23,7 @@ def calc_distance_to_sea(
         _type_: _description_
     """
     print("Generating distances")
-    coastline = gpd.read_file(
-        Path("./data").joinpath(coast_boundaries, f"{coast_boundaries}.shp")
-    )
+    coastline = gpd.read_file(Path("./data").joinpath(coast_boundaries))
 
     if coastline.empty or coastline["geometry"].isnull().any():
         raise ValueError("Coastline data is missing or invalid")
