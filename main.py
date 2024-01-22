@@ -6,7 +6,7 @@ from distance_to_sea.calc import calc_distance_to_sea
 from distance_to_sea.format import clean_distance_to_sea
 from distance_to_sea.process import process_pwc
 
-with open("config.yaml", "r") as yamlfile:
+with open("config.yml", "r") as yamlfile:
     cfg = yaml.load(yamlfile, Loader=yaml.FullLoader)
     print("Config loaded")
 print(cfg)
