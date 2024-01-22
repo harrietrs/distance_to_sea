@@ -21,7 +21,7 @@ def main() -> None:
         pwc,
         coast_boundaries=cfg["files"]["boundaries"],
         area_code=cfg["fields"]["area_code"],
-        distance_to_sea_field=cfg["fields"]["output_field"],
+        distance_to_sea_field=cfg["fields"]["output_field_name"],
     )
     clean_distance_to_sea(
         distances,
