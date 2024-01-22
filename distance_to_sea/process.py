@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 from bng_latlon import OSGB36toWGS84
 
-from src import params
+from distance_to_sea import params
 
 
 def process_pwc(raw_file: str = params.pwc_file) -> pd.DataFrame:

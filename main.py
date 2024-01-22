@@ -1,8 +1,8 @@
 import timeit
 
-from src.calc import distance_to_sea
-from src.format import clean_distance_to_sea
-from src.process import process_pwc
+from distance_to_sea.calc import distance_to_sea
+from distance_to_sea.format import clean_distance_to_sea
+from distance_to_sea.process import process_pwc
 
 
 def main() -> None:
