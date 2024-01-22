@@ -1,6 +1,6 @@
 files:
-  centroids: pwc_datafile.csv
-  boundaries: gadm41_GBR_0_compressed_50.2
+  centroids: LLSOA_Dec_2021_PWC_for_England_and_Wales_2022_-7534040603619445107.geojson
+  boundaries: Countries_December_2021_UK_BGC_2022_3072220700897643058.geojson
   output: distance_to_sea.csv
 fields:
   output_field_name: "Distance to Sea (km)"
