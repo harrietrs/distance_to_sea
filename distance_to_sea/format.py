@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from src import params
+from distance_to_sea import params
 
 
 def clean_distance_to_sea(

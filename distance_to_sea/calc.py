@@ -6,7 +6,7 @@ from pandas import DataFrame
 from shapely.geometry import Point
 from shapely.ops import nearest_points
 
-from src import params
+from distance_to_sea import params
 
 
 def distance_to_sea(
