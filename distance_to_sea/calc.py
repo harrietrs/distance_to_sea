@@ -1,23 +1,22 @@
 from pathlib import Path
 
 import geopandas as gpd
+from dotenv import load_dotenv
 from geopy.distance import distance
 from pandas import DataFrame
 from shapely.geometry import Point
 from shapely.ops import nearest_points
 
+load_dotenv()
 from distance_to_sea import params
 
 
-def distance_to_sea(
-    pwc: DataFrame, coast_boundaries: str = params.coast_boundaries_file
-):
-    """distance_to_sea
+def calc_distance_to_sea(pwc: DataFrame, coast_boundaries: str):
+    """calc_distance_to_sea
 
     Args:
         pwc (DataFrame): Population-weighted centroid data
         coast_boundaries (str, optional): File containing coastal boundary data.
-        Defaults to params.coast_boundaries_file.
 
     Raises:
         ValueError: _description_
@@ -62,8 +61,6 @@ def distance_to_sea(
         ).km
 
     print("Calculating the distance to the coast")
-    pwc[params.distance_to_sea_field_name] = pwc.apply(
-        _calc_distance_between_points, axis=1
-    )
+    pwc[DISTANCE_TO_SEA_FIELD_NAME] = pwc.apply(_calc_distance_between_points, axis=1)
 
-    return pwc[[params.area_code, params.distance_to_sea_field_name]].copy()
+    return pwc[[AREA_CODE, DISTANCE_TO_SEA_FIELD_NAME]].copy()

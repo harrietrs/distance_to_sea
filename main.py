@@ -1,16 +1,20 @@
 import timeit
 
-from distance_to_sea.calc import distance_to_sea
+from dotenv import load_dotenv
+
+from distance_to_sea.calc import calc_distance_to_sea
 from distance_to_sea.format import clean_distance_to_sea
 from distance_to_sea.process import process_pwc
 
+load_dotenv()
+
 
 def main() -> None:
-
+    "Main function to run pipeline"
     print(f"\n{'-'*60}\nPipeline starting\n")
     print(f"\n{'-'*60}\nCleaning Data\n")
-    pwc = process_pwc()
-    distances = distance_to_sea(pwc)
+    pwc = process_pwc(PWC_FILE)
+    distances = calc_distance_to_sea(pwc, COAST_BOUNDARIES_FILE)
     clean_distance_to_sea(distances, write=True)
 
 
